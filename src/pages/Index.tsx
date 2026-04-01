@@ -1,4 +1,4 @@
-import { Heart, BookOpen, Shield, Users, Star, ArrowRight } from "lucide-react";
+import { Heart, BookOpen, Shield, Users, Star, ArrowRight, Sparkles, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ebookMockup from "@/assets/ebook-mockup.jpg";
 import heroCare from "@/assets/hero-care.jpg";
@@ -13,22 +13,30 @@ const features = [
   { icon: Users, title: "Para Todos", desc: "Familiares, cuidadores iniciantes e estudantes" },
 ];
 
+const highlights = [
+  "Linguagem leve e acolhedora",
+  "Escrito por enfermeira com experiência em ILPI",
+  "Ideal para cuidadores iniciantes",
+  "Práticas reais e acessíveis",
+];
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-15">
           <img src={heroCare} alt="" className="w-full h-full object-cover" aria-hidden="true" />
         </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/40 to-background" />
         <div className="relative container mx-auto px-4 py-20 md:py-32">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
             <div className="flex-1 text-center lg:text-left space-y-6 animate-fade-up">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-body tracking-wide">
-                E-book disponível na Amazon
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-body tracking-wide">
+                <Sparkles className="w-4 h-4" /> E-book disponível na Amazon
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight text-foreground">
-                Cuidado com Amor
+                Cuidado com <span className="text-primary">Amor</span>
               </h1>
               <p className="text-lg md:text-xl font-display italic text-muted-foreground max-w-lg">
                 Guia prático para cuidadores e familiares de idosos
@@ -38,7 +46,7 @@ const Index = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
                 <a href={AMAZON_LINK} target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="text-lg px-8 py-6 gap-2 rounded-full bg-primary text-primary-foreground hover:opacity-90 transition-opacity">
+                  <Button size="lg" className="text-lg px-8 py-6 gap-2 rounded-full bg-primary text-primary-foreground hover:opacity-90 transition-all hover:scale-105 shadow-lg">
                     Comprar na Amazon <ArrowRight className="w-5 h-5" />
                   </Button>
                 </a>
@@ -51,14 +59,30 @@ const Index = () => {
               </div>
             </div>
             <div className="flex-shrink-0 animate-float" style={{ animationDelay: "0.3s" }}>
-              <img
-                src={ebookMockup}
-                alt="E-book Cuidado com Amor no Kindle"
-                width={400}
-                height={500}
-                className="w-72 md:w-96 drop-shadow-2xl rounded-2xl"
-              />
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/30 rounded-3xl blur-2xl" />
+                <img
+                  src={ebookMockup}
+                  alt="Capa do E-book Cuidado com Amor"
+                  width={400}
+                  height={500}
+                  className="relative w-72 md:w-96 drop-shadow-2xl rounded-2xl border-2 border-accent"
+                />
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Highlights ribbon */}
+      <section className="py-6 bg-primary/10 border-y border-primary/20">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-12">
+            {highlights.map((h) => (
+              <span key={h} className="flex items-center gap-2 text-sm font-body text-accent-foreground">
+                <Sparkles className="w-4 h-4 text-primary" /> {h}
+              </span>
+            ))}
           </div>
         </div>
       </section>
@@ -67,7 +91,7 @@ const Index = () => {
       <section className="py-20 bg-card">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-display font-semibold text-center text-foreground mb-4">
-            O que você vai encontrar
+            O que você vai <span className="text-primary">encontrar</span>
           </h2>
           <p className="text-center text-muted-foreground font-body mb-14 max-w-2xl mx-auto">
             Cada página foi escrita para transformar o ato de cuidar em um gesto de respeito e dignidade.
@@ -76,11 +100,11 @@ const Index = () => {
             {features.map((f, i) => (
               <div
                 key={f.title}
-                className="bg-background rounded-2xl p-8 text-center space-y-4 border border-border hover:shadow-lg transition-shadow duration-300"
+                className="bg-background rounded-2xl p-8 text-center space-y-4 border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300 group"
                 style={{ animationDelay: `${i * 0.15}s` }}
               >
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-accent">
-                  <f.icon className="w-7 h-7 text-accent-foreground" />
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-accent group-hover:bg-primary/15 transition-colors">
+                  <f.icon className="w-7 h-7 text-primary" />
                 </div>
                 <h3 className="text-lg font-display font-semibold text-foreground">{f.title}</h3>
                 <p className="text-sm text-muted-foreground font-body leading-relaxed">{f.desc}</p>
@@ -95,7 +119,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <h2 className="text-3xl md:text-4xl font-display font-semibold text-foreground">
-              Sobre o E-book
+              Sobre o <span className="text-primary">E-book</span>
             </h2>
             <p className="text-muted-foreground font-body leading-relaxed text-lg">
               <span className="font-display italic text-foreground">Cuidado com Amor</span> é o recurso ideal para familiares, 
@@ -107,11 +131,24 @@ const Index = () => {
             </p>
             <div className="pt-6">
               <a href={AMAZON_LINK} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="rounded-full px-8 py-6 text-lg bg-primary text-primary-foreground hover:opacity-90 transition-opacity gap-2">
+                <Button size="lg" className="rounded-full px-8 py-6 text-lg bg-primary text-primary-foreground hover:opacity-90 transition-all hover:scale-105 shadow-lg gap-2">
                   Garanta o seu agora <ArrowRight className="w-5 h-5" />
                 </Button>
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quote Section */}
+      <section className="py-16 bg-primary/5">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto text-center space-y-4">
+            <Quote className="w-10 h-10 text-primary/40 mx-auto" />
+            <p className="text-xl md:text-2xl font-display italic text-foreground leading-relaxed">
+              "Criei este e-book para levar até você orientações práticas, acessíveis e reais, com o mesmo carinho com que ensino meus alunos."
+            </p>
+            <p className="text-sm text-muted-foreground font-body">— Adriana Rodrigues de Oliveira</p>
           </div>
         </div>
       </section>
@@ -121,18 +158,21 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center gap-12 max-w-4xl mx-auto">
             <div className="flex-shrink-0">
-              <img
-                src={authorImg}
-                alt="Adriana Rodrigues de Oliveira"
-                loading="lazy"
-                width={280}
-                height={280}
-                className="w-56 h-56 md:w-72 md:h-72 rounded-full object-cover border-4 border-accent shadow-lg"
-              />
+              <div className="relative">
+                <div className="absolute -inset-3 bg-gradient-to-br from-primary/25 to-accent/40 rounded-full blur-xl" />
+                <img
+                  src={authorImg}
+                  alt="Adriana Rodrigues de Oliveira"
+                  loading="lazy"
+                  width={280}
+                  height={280}
+                  className="relative w-56 h-56 md:w-72 md:h-72 rounded-full object-cover border-4 border-primary/30 shadow-lg"
+                />
+              </div>
             </div>
             <div className="text-center md:text-left space-y-4">
               <h2 className="text-3xl font-display font-semibold text-foreground">
-                Quem é Adriana Oliveira?
+                Quem é <span className="text-primary">Adriana Oliveira</span>?
               </h2>
               <p className="text-muted-foreground font-body leading-relaxed">
                 Enfermeira por vocação, apaixonada por ensinar e cuidar com amor em todas as fases da vida. 
@@ -149,16 +189,17 @@ const Index = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 text-center space-y-6">
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/10" />
+        <div className="relative container mx-auto px-4 text-center space-y-6">
           <h2 className="text-3xl md:text-4xl font-display font-semibold text-foreground">
-            Cuidar com amor é um dos maiores atos de generosidade
+            Cuidar com amor é um dos maiores atos de <span className="text-primary">generosidade</span>
           </h2>
           <p className="text-muted-foreground font-body max-w-xl mx-auto leading-relaxed">
             Que este material possa ser uma mão estendida nos seus dias difíceis, uma fonte de confiança nas dúvidas.
           </p>
           <a href={AMAZON_LINK} target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="rounded-full px-10 py-7 text-xl bg-primary text-primary-foreground hover:opacity-90 transition-opacity gap-2 mt-4">
+            <Button size="lg" className="rounded-full px-10 py-7 text-xl bg-primary text-primary-foreground hover:opacity-90 transition-all hover:scale-105 shadow-xl gap-2 mt-4">
               Comprar E-book <ArrowRight className="w-5 h-5" />
             </Button>
           </a>

@@ -6,42 +6,42 @@
 
 @layer base {
   :root {
-    --background: 40 33% 96%;
-    --foreground: 30 10% 20%;
+    --background: 30 40% 97%;
+    --foreground: 350 15% 22%;
 
-    --card: 40 30% 98%;
-    --card-foreground: 30 10% 20%;
+    --card: 30 35% 99%;
+    --card-foreground: 350 15% 22%;
 
-    --popover: 40 30% 98%;
-    --popover-foreground: 30 10% 20%;
+    --popover: 30 35% 99%;
+    --popover-foreground: 350 15% 22%;
 
-    --primary: 90 20% 40%;
-    --primary-foreground: 40 33% 96%;
+    --primary: 350 45% 55%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 35 30% 90%;
-    --secondary-foreground: 30 10% 25%;
+    --secondary: 25 40% 91%;
+    --secondary-foreground: 350 15% 25%;
 
-    --muted: 35 20% 92%;
-    --muted-foreground: 30 8% 50%;
+    --muted: 25 25% 93%;
+    --muted-foreground: 350 10% 42%;
 
-    --accent: 90 15% 85%;
-    --accent-foreground: 90 20% 30%;
+    --accent: 350 30% 90%;
+    --accent-foreground: 350 40% 40%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 35 20% 88%;
-    --input: 35 20% 88%;
-    --ring: 90 20% 40%;
+    --border: 25 25% 88%;
+    --input: 25 25% 88%;
+    --ring: 350 45% 55%;
 
     --radius: 0.75rem;
 
-    --sage: 90 20% 40%;
-    --sage-light: 90 15% 85%;
-    --warm-cream: 40 33% 96%;
-    --warm-beige: 35 30% 90%;
-    --text-dark: 30 10% 20%;
-    --text-soft: 30 8% 50%;
+    --sage: 350 45% 55%;
+    --sage-light: 350 30% 90%;
+    --warm-cream: 30 40% 97%;
+    --warm-beige: 25 40% 91%;
+    --text-dark: 350 15% 22%;
+    --text-soft: 350 10% 42%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
