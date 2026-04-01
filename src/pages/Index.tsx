@@ -1,4 +1,4 @@
-import { Heart, BookOpen, Shield, Users, Star, ArrowRight, Sparkles, Quote } from "lucide-react";
+import { Heart, BookOpen, Shield, Users, Star, ArrowRight, Sparkles, Quote, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ebookMockup from "@/assets/ebook-mockup.jpg";
 import heroCare from "@/assets/hero-care.jpg";
@@ -15,47 +15,53 @@ const features = [
 
 const highlights = [
   "Linguagem leve e acolhedora",
-  "Escrito por enfermeira com experiência em ILPI",
-  "Ideal para cuidadores iniciantes",
-  "Práticas reais e acessíveis",
+  "Experiência real em ILPI",
+  "Para cuidadores iniciantes",
+  "Práticas acessíveis",
+];
+
+const stats = [
+  { value: "100+", label: "Páginas de conteúdo" },
+  { value: "10+", label: "Capítulos práticos" },
+  { value: "5★", label: "Avaliação Amazon" },
 ];
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 opacity-15">
-          <img src={heroCare} alt="" className="w-full h-full object-cover" aria-hidden="true" />
+      <section className="relative overflow-hidden min-h-[90vh] flex items-center">
+        <div className="absolute inset-0 opacity-10">
+          <img src={heroCare} alt="" className="w-full h-full object-cover scale-110" aria-hidden="true" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/40 to-background" />
-        <div className="relative container mx-auto px-4 py-20 md:py-32">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-            <div className="flex-1 text-center lg:text-left space-y-6 animate-fade-up">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-body tracking-wide">
-                <Sparkles className="w-4 h-4" /> E-book disponível na Amazon
+        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/50 to-background" />
+        <div className="relative container mx-auto px-4 py-12 md:py-20">
+          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+            <div className="flex-1 text-center lg:text-left space-y-5 animate-fade-up">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs sm:text-sm font-body tracking-wide">
+                <Sparkles className="w-3.5 h-3.5" /> E-book disponível na Amazon
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight text-foreground">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight text-foreground">
                 Cuidado com <span className="text-primary">Amor</span>
               </h1>
-              <p className="text-lg md:text-xl font-display italic text-muted-foreground max-w-lg">
-                Guia prático para cuidadores e familiares de idosos
+              <p className="text-base sm:text-lg md:text-xl font-display italic text-muted-foreground max-w-lg mx-auto lg:mx-0">
+                Guia prático para <strong>cuidadores</strong> e <strong>familiares</strong> de idosos
               </p>
-              <p className="text-base text-muted-foreground max-w-md font-body leading-relaxed">
-                Mais que um manual — um companheiro de jornada para quem dedica sua vida a zelar por quem mais precisa.
+              <p className="text-sm sm:text-base text-muted-foreground max-w-md mx-auto lg:mx-0 font-body leading-relaxed">
+                Mais que um manual, um <strong>companheiro de jornada</strong> para quem dedica sua vida a zelar por quem mais precisa.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start pt-2">
                 <a href={AMAZON_LINK} target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="text-lg px-8 py-6 gap-2 rounded-full bg-primary text-primary-foreground hover:opacity-90 transition-all hover:scale-105 shadow-lg">
+                  <Button size="lg" className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 gap-2 rounded-full bg-primary text-primary-foreground hover:opacity-90 transition-all hover:scale-105 shadow-lg">
                     Comprar na Amazon <ArrowRight className="w-5 h-5" />
                   </Button>
                 </a>
               </div>
-              <div className="flex items-center gap-1 justify-center lg:justify-start pt-2">
+              <div className="flex items-center gap-1 justify-center lg:justify-start pt-1">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                  <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-primary text-primary" />
                 ))}
-                <span className="ml-2 text-sm text-muted-foreground font-body">por Adriana Rodrigues de Oliveira</span>
+                <span className="ml-2 text-xs sm:text-sm text-muted-foreground font-body">por <strong>Adriana Rodrigues de Oliveira</strong></span>
               </div>
             </div>
             <div className="flex-shrink-0 animate-float" style={{ animationDelay: "0.3s" }}>
@@ -64,23 +70,41 @@ const Index = () => {
                 <img
                   src={ebookMockup}
                   alt="Capa do E-book Cuidado com Amor"
-                  width={400}
-                  height={500}
-                  className="relative w-72 md:w-96 drop-shadow-2xl rounded-2xl border-2 border-accent"
+                  width={320}
+                  height={420}
+                  className="relative w-48 sm:w-60 md:w-72 drop-shadow-2xl rounded-2xl border-2 border-accent"
                 />
               </div>
             </div>
+          </div>
+          {/* Scroll indicator */}
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
+            <ChevronDown className="w-6 h-6 text-muted-foreground/50" />
+          </div>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="py-8 sm:py-10 bg-primary/10 border-y border-primary/20">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-3 gap-4 sm:gap-8 text-center">
+            {stats.map((s) => (
+              <div key={s.label}>
+                <div className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-primary">{s.value}</div>
+                <div className="text-xs sm:text-sm text-muted-foreground font-body mt-1">{s.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Highlights ribbon */}
-      <section className="py-6 bg-primary/10 border-y border-primary/20">
+      <section className="py-4 sm:py-6 bg-card border-b border-border">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-6 md:gap-12">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-6 md:gap-12">
             {highlights.map((h) => (
-              <span key={h} className="flex items-center gap-2 text-sm font-body text-accent-foreground">
-                <Sparkles className="w-4 h-4 text-primary" /> {h}
+              <span key={h} className="flex items-center gap-1.5 text-xs sm:text-sm font-body text-accent-foreground">
+                <Sparkles className="w-3.5 h-3.5 text-primary" /> {h}
               </span>
             ))}
           </div>
@@ -88,26 +112,26 @@ const Index = () => {
       </section>
 
       {/* Features */}
-      <section className="py-20 bg-card">
+      <section className="py-14 sm:py-20 bg-card">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-display font-semibold text-center text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-semibold text-center text-foreground mb-3 sm:mb-4">
             O que você vai <span className="text-primary">encontrar</span>
           </h2>
-          <p className="text-center text-muted-foreground font-body mb-14 max-w-2xl mx-auto">
-            Cada página foi escrita para transformar o ato de cuidar em um gesto de respeito e dignidade.
+          <p className="text-center text-muted-foreground font-body mb-10 sm:mb-14 max-w-2xl mx-auto text-sm sm:text-base">
+            Cada página foi escrita para transformar o ato de <strong>cuidar</strong> em um gesto de <strong>respeito</strong> e <strong>dignidade</strong>.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {features.map((f, i) => (
               <div
                 key={f.title}
-                className="bg-background rounded-2xl p-8 text-center space-y-4 border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300 group"
+                className="bg-background rounded-2xl p-6 sm:p-8 text-center space-y-3 sm:space-y-4 border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300 group"
                 style={{ animationDelay: `${i * 0.15}s` }}
               >
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-accent group-hover:bg-primary/15 transition-colors">
-                  <f.icon className="w-7 h-7 text-primary" />
+                <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-accent group-hover:bg-primary/15 transition-colors">
+                  <f.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
                 </div>
-                <h3 className="text-lg font-display font-semibold text-foreground">{f.title}</h3>
-                <p className="text-sm text-muted-foreground font-body leading-relaxed">{f.desc}</p>
+                <h3 className="text-base sm:text-lg font-display font-semibold text-foreground">{f.title}</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground font-body leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>
@@ -115,23 +139,23 @@ const Index = () => {
       </section>
 
       {/* About the book */}
-      <section className="py-20">
+      <section className="py-14 sm:py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-display font-semibold text-foreground">
+          <div className="max-w-3xl mx-auto text-center space-y-5 sm:space-y-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-semibold text-foreground">
               Sobre o <span className="text-primary">E-book</span>
             </h2>
-            <p className="text-muted-foreground font-body leading-relaxed text-lg">
-              <span className="font-display italic text-foreground">Cuidado com Amor</span> é o recurso ideal para familiares, 
-              cuidadores iniciantes e estudantes que acreditam que o zelo técnico ganha força quando acompanhado de carinho.
+            <p className="text-muted-foreground font-body leading-relaxed text-sm sm:text-lg">
+              <span className="font-display italic text-foreground">Cuidado com Amor</span> é o recurso ideal para <strong>familiares</strong>, 
+              <strong> cuidadores iniciantes</strong> e <strong>estudantes</strong> que acreditam que o zelo técnico ganha força quando acompanhado de carinho.
             </p>
-            <p className="text-muted-foreground font-body leading-relaxed">
-              Desde a organização da rotina e higiene até a administração segura de medicamentos e prevenção de riscos, 
-              descubra como aliar as melhores práticas da enfermagem ao poder do afeto, garantindo um envelhecimento pleno e humano.
+            <p className="text-muted-foreground font-body leading-relaxed text-sm sm:text-base">
+              Desde a organização da <strong>rotina e higiene</strong> até a <strong>administração segura de medicamentos</strong> e prevenção de riscos, 
+              descubra como aliar as melhores práticas da enfermagem ao poder do afeto, garantindo um <strong>envelhecimento pleno e humano</strong>.
             </p>
-            <div className="pt-6">
+            <div className="pt-4 sm:pt-6">
               <a href={AMAZON_LINK} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="rounded-full px-8 py-6 text-lg bg-primary text-primary-foreground hover:opacity-90 transition-all hover:scale-105 shadow-lg gap-2">
+                <Button size="lg" className="w-full sm:w-auto rounded-full px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg bg-primary text-primary-foreground hover:opacity-90 transition-all hover:scale-105 shadow-lg gap-2">
                   Garanta o seu agora <ArrowRight className="w-5 h-5" />
                 </Button>
               </a>
@@ -141,22 +165,22 @@ const Index = () => {
       </section>
 
       {/* Quote Section */}
-      <section className="py-16 bg-primary/5">
+      <section className="py-12 sm:py-16 bg-primary/5">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center space-y-4">
-            <Quote className="w-10 h-10 text-primary/40 mx-auto" />
-            <p className="text-xl md:text-2xl font-display italic text-foreground leading-relaxed">
-              "Criei este e-book para levar até você orientações práticas, acessíveis e reais, com o mesmo carinho com que ensino meus alunos."
+            <Quote className="w-8 h-8 sm:w-10 sm:h-10 text-primary/40 mx-auto" />
+            <p className="text-lg sm:text-xl md:text-2xl font-display italic text-foreground leading-relaxed px-2">
+              "Criei este e-book para levar até você <strong>orientações práticas, acessíveis e reais</strong>, com o mesmo carinho com que ensino meus alunos."
             </p>
-            <p className="text-sm text-muted-foreground font-body">— Adriana Rodrigues de Oliveira</p>
+            <p className="text-xs sm:text-sm text-muted-foreground font-body">Adriana Rodrigues de Oliveira</p>
           </div>
         </div>
       </section>
 
       {/* Author */}
-      <section className="py-20 bg-card">
+      <section className="py-14 sm:py-20 bg-card">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center gap-12 max-w-4xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center gap-8 sm:gap-12 max-w-4xl mx-auto">
             <div className="flex-shrink-0">
               <div className="relative">
                 <div className="absolute -inset-3 bg-gradient-to-br from-primary/25 to-accent/40 rounded-full blur-xl" />
@@ -164,24 +188,24 @@ const Index = () => {
                   src={authorImg}
                   alt="Adriana Rodrigues de Oliveira"
                   loading="lazy"
-                  width={280}
-                  height={280}
-                  className="relative w-56 h-56 md:w-72 md:h-72 rounded-full object-cover border-4 border-primary/30 shadow-lg"
+                  width={240}
+                  height={240}
+                  className="relative w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 rounded-full object-cover border-4 border-primary/30 shadow-lg"
                 />
               </div>
             </div>
-            <div className="text-center md:text-left space-y-4">
-              <h2 className="text-3xl font-display font-semibold text-foreground">
+            <div className="text-center md:text-left space-y-3 sm:space-y-4">
+              <h2 className="text-2xl sm:text-3xl font-display font-semibold text-foreground">
                 Quem é <span className="text-primary">Adriana Oliveira</span>?
               </h2>
-              <p className="text-muted-foreground font-body leading-relaxed">
-                Enfermeira por vocação, apaixonada por ensinar e cuidar com amor em todas as fases da vida. 
-                Já atuou como enfermeira em uma Instituição de Longa Permanência para Idosos (ILPI), 
-                onde aprendeu que o cuidado vai muito além de procedimentos — ele exige escuta, paciência, respeito e presença.
+              <p className="text-sm sm:text-base text-muted-foreground font-body leading-relaxed">
+                <strong>Enfermeira por vocação</strong>, apaixonada por ensinar e cuidar com amor em todas as fases da vida. 
+                Já atuou como enfermeira em uma <strong>Instituição de Longa Permanência para Idosos (ILPI)</strong>, 
+                onde aprendeu que o cuidado vai muito além de procedimentos, ele exige <strong>escuta, paciência, respeito e presença</strong>.
               </p>
-              <p className="text-muted-foreground font-body leading-relaxed">
-                Hoje, dedica sua vida a formar novos profissionais como professora no curso técnico em enfermagem 
-                e tutora no curso de Cuidador de Idosos, preparando cuidadores conscientes, humanos e bem informados.
+              <p className="text-sm sm:text-base text-muted-foreground font-body leading-relaxed">
+                Hoje, dedica sua vida a formar novos profissionais como <strong>professora no curso técnico em enfermagem</strong> 
+                e <strong>tutora no curso de Cuidador de Idosos</strong>, preparando cuidadores conscientes, humanos e bem informados.
               </p>
             </div>
           </div>
@@ -189,17 +213,17 @@ const Index = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 relative overflow-hidden">
+      <section className="py-14 sm:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/10" />
-        <div className="relative container mx-auto px-4 text-center space-y-6">
-          <h2 className="text-3xl md:text-4xl font-display font-semibold text-foreground">
+        <div className="relative container mx-auto px-4 text-center space-y-4 sm:space-y-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-semibold text-foreground">
             Cuidar com amor é um dos maiores atos de <span className="text-primary">generosidade</span>
           </h2>
-          <p className="text-muted-foreground font-body max-w-xl mx-auto leading-relaxed">
-            Que este material possa ser uma mão estendida nos seus dias difíceis, uma fonte de confiança nas dúvidas.
+          <p className="text-sm sm:text-base text-muted-foreground font-body max-w-xl mx-auto leading-relaxed">
+            Que este material possa ser uma <strong>mão estendida</strong> nos seus dias difíceis, uma <strong>fonte de confiança</strong> nas dúvidas.
           </p>
           <a href={AMAZON_LINK} target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="rounded-full px-10 py-7 text-xl bg-primary text-primary-foreground hover:opacity-90 transition-all hover:scale-105 shadow-xl gap-2 mt-4">
+            <Button size="lg" className="w-full sm:w-auto rounded-full px-8 sm:px-10 py-6 sm:py-7 text-lg sm:text-xl bg-primary text-primary-foreground hover:opacity-90 transition-all hover:scale-105 shadow-xl gap-2 mt-4">
               Comprar E-book <ArrowRight className="w-5 h-5" />
             </Button>
           </a>
@@ -207,8 +231,8 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 border-t border-border">
-        <div className="container mx-auto px-4 text-center text-sm text-muted-foreground font-body">
+      <footer className="py-6 sm:py-8 border-t border-border">
+        <div className="container mx-auto px-4 text-center text-xs sm:text-sm text-muted-foreground font-body">
           <p>© {new Date().getFullYear()} Adriana Rodrigues de Oliveira. Todos os direitos reservados.</p>
         </div>
       </footer>
