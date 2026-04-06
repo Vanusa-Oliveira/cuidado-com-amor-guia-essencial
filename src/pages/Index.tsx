@@ -17,10 +17,10 @@ const features = [
 ];
 
 const topics = [
-  { icon: Clock, title: "Rotina do Cuidador", desc: "Organização prática do dia a dia para otimizar o cuidado" },
-  { icon: Droplets, title: "Higiene e Bem-estar", desc: "Procedimentos seguros de higiene que preservam a dignidade" },
-  { icon: Pill, title: "Medicamentos", desc: "Administração segura e controle correto de medicações" },
-  { icon: Stethoscope, title: "Prevenção de Riscos", desc: "Identificação e prevenção de situações de risco ao idoso" },
+  { icon: Clock, title: "Como organizar a rotina do cuidador?", desc: "Dicas práticas para planejar o dia a dia e otimizar o tempo de cuidado" },
+  { icon: Droplets, title: "Rotina de higiene segura para idosos", desc: "Procedimentos que preservam a dignidade e o bem-estar" },
+  { icon: Pill, title: "Como administrar medicamentos com segurança?", desc: "Controle correto de medicações e prevenção de erros" },
+  { icon: Stethoscope, title: "Prevenção de riscos e quedas em idosos", desc: "Identificação e prevenção de situações de risco no dia a dia" },
 ];
 
 const highlights = [
@@ -56,7 +56,7 @@ const Index = () => {
                 <Sparkles className="w-3.5 h-3.5" /> E-book disponível na Amazon
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight text-foreground">
-                Guia prático para <span className="text-primary">cuidadores</span> e <span className="text-primary">familiares</span> de idosos
+                Como cuidar de idosos em casa: <span className="text-primary">guia prático</span> para <span className="text-primary">cuidadores</span> e familiares
               </h1>
               <p className="text-base sm:text-lg md:text-xl font-display italic text-muted-foreground max-w-lg mx-auto lg:mx-0">
                 Cuidando com <strong>Amor</strong>
@@ -86,7 +86,7 @@ const Index = () => {
                 <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/30 rounded-3xl blur-2xl" />
                 <img
                   src={ebookMockup}
-                  alt="Capa do E-book Cuidando com Amor"
+                  alt="Capa do e-book Cuidando com Amor: guia prático para cuidadores de idosos com orientações de enfermagem"
                   width={320}
                   height={420}
                   className="relative w-48 sm:w-60 md:w-72 drop-shadow-2xl rounded-2xl border-2 border-accent"
@@ -131,7 +131,7 @@ const Index = () => {
       <section className="py-14 sm:py-20 bg-card">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl sm:text-3xl md:text-[2.75rem] font-display font-semibold text-center text-foreground mb-3 sm:mb-4 leading-tight" data-aos="fade-up">
-            O que você vai <span className="text-primary">encontrar</span>
+            Primeiros passos para <span className="text-primary">cuidadores iniciantes</span>
           </h2>
           <p className="text-center text-muted-foreground font-feature text-sm sm:text-lg mb-10 sm:mb-14 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
             Cada página foi escrita para transformar o ato de <strong>cuidar</strong> em um gesto de <strong>respeito</strong> e <strong>dignidade</strong>.
@@ -159,7 +159,7 @@ const Index = () => {
       <section className="py-14 sm:py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl sm:text-3xl md:text-[2.75rem] font-display font-semibold text-center text-foreground mb-3 sm:mb-4 leading-tight" data-aos="fade-up">
-            Tópicos <span className="text-primary">abordados</span>
+            Rotina de higiene, medicamentos e <span className="text-primary">prevenção de riscos</span>
           </h2>
           <p className="text-center text-muted-foreground font-feature text-sm sm:text-lg mb-10 sm:mb-14 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
             Conteúdo <strong>completo</strong> e <strong>organizado</strong> para facilitar o seu aprendizado.
@@ -178,6 +178,39 @@ const Index = () => {
                 <div>
                   <h3 className="text-base sm:text-lg font-feature font-bold text-foreground mb-1">{t.title}</h3>
                   <p className="text-sm text-muted-foreground font-feature leading-relaxed">{t.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-14 sm:py-20 bg-secondary/40">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-[2.75rem] font-display font-semibold text-center text-foreground mb-3 sm:mb-4 leading-tight" data-aos="fade-up">
+            O que dizem os <span className="text-primary">leitores</span>
+          </h2>
+          <p className="text-center text-muted-foreground font-feature text-sm sm:text-lg mb-10 sm:mb-14 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+            Histórias reais de quem transformou o cuidado com o e-book.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 max-w-5xl mx-auto">
+            {[
+              { text: 'Eu vivia insegura com os remédios e a rotina do meu pai. O guia da Adriana me deu a <strong>segurança</strong> que eu precisava para cuidar dele em casa com calma.', author: 'Mariana S.', role: 'Filha e Cuidadora' },
+              { text: 'Sou cuidador iniciante e o e-book me ajudou demais! É <strong>direto ao ponto</strong>, com dicas de higiene e organização que facilitam muito o dia a dia.', author: 'Marcos Oliveira', role: 'Cuidador' },
+              { text: 'Material incrível e muito humano. Ensinou que cuidar vai além da técnica, é um gesto de <strong>respeito e amor</strong>. Essencial para qualquer família!', author: 'Ana Lúcia', role: 'Familiar' },
+            ].map((t, i) => (
+              <div
+                key={i}
+                data-aos="fade-up"
+                data-aos-delay={i * 150}
+                className="bg-background rounded-2xl p-6 sm:p-8 border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 flex flex-col"
+              >
+                <Quote className="w-8 h-8 text-primary/30 mb-3 flex-shrink-0" />
+                <p className="text-sm sm:text-base text-muted-foreground font-body leading-relaxed flex-1" dangerouslySetInnerHTML={{ __html: t.text }} />
+                <div className="mt-4 pt-4 border-t border-border">
+                  <p className="text-sm font-feature font-bold text-foreground">{t.author}</p>
+                  <p className="text-xs text-muted-foreground font-body">{t.role}</p>
                 </div>
               </div>
             ))}
@@ -233,7 +266,7 @@ const Index = () => {
                 <div className="absolute -inset-3 bg-gradient-to-br from-primary/25 to-accent/40 rounded-full blur-xl" />
                 <img
                   src={authorImg}
-                  alt="Adriana Rodrigues de Oliveira"
+                  alt="Adriana Rodrigues de Oliveira, enfermeira e autora do guia Cuidando com Amor para cuidadores de idosos"
                   loading="lazy"
                   width={240}
                   height={240}
