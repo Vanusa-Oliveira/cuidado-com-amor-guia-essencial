@@ -311,9 +311,10 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-6 sm:py-8 border-t border-border">
-        <div className="container mx-auto px-4 text-center text-xs sm:text-sm text-muted-foreground font-body">
-          <p>© {new Date().getFullYear()} Adriana Rodrigues de Oliveira. Todos os direitos reservados.</p>
+      <footer className="py-8 sm:py-10 bg-foreground/95 text-background">
+        <div className="container mx-auto px-4 text-center space-y-3">
+          <p className="text-sm font-body">© 2026 Cuidado com Amor - Todos os direitos reservados.</p>
+          <p className="text-xs font-body text-background/60">Este material tem caráter informativo e não substitui a consulta médica ou de enfermagem presencial.</p>
         </div>
       </footer>
     </div>
