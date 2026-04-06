@@ -1,6 +1,8 @@
+import { useEffect } from "react";
 import { Heart, BookOpen, Shield, Users, Star, ArrowRight, Sparkles, Quote, ChevronDown, Stethoscope, Clock, Droplets, Pill } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import ebookMockup from "@/assets/ebook-mockup.jpg";
 import heroCare from "@/assets/hero-care.jpg";
 import authorImg from "@/assets/author-adriana.jpg";
@@ -35,7 +37,9 @@ const stats = [
 ];
 
 const Index = () => {
-  useScrollAnimation();
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true, easing: "ease-out-cubic", offset: 60 });
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -47,15 +51,15 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/50 to-background" />
         <div className="relative container mx-auto px-4 py-12 md:py-20">
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
-            <div className="flex-1 text-center lg:text-left space-y-5 animate-fade-up">
+            <div className="flex-1 text-center lg:text-left space-y-5" data-aos="fade-up">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs sm:text-sm font-body tracking-wide">
                 <Sparkles className="w-3.5 h-3.5" /> E-book disponível na Amazon
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight text-foreground">
-                <span className="animated-underline visible">Cuidando com</span> <span className="text-primary">Amor</span>
+                Guia prático para <span className="text-primary">cuidadores</span> e <span className="text-primary">familiares</span> de idosos
               </h1>
               <p className="text-base sm:text-lg md:text-xl font-display italic text-muted-foreground max-w-lg mx-auto lg:mx-0">
-                Guia prático para <strong>cuidadores</strong> e <strong>familiares</strong> de idosos
+                Cuidando com <strong>Amor</strong>
               </p>
               <p className="text-sm sm:text-base text-muted-foreground max-w-md mx-auto lg:mx-0 font-body leading-relaxed">
                 Mais que um manual, um <strong>companheiro de jornada</strong> para quem dedica sua vida a zelar por quem mais precisa.
@@ -100,8 +104,8 @@ const Index = () => {
       <section className="py-8 sm:py-10 bg-primary/10 border-y border-primary/20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-3 gap-4 sm:gap-8 text-center">
-            {stats.map((s) => (
-              <div key={s.label} className="animate-on-scroll">
+            {stats.map((s, i) => (
+              <div key={s.label} data-aos="fade-up" data-aos-delay={i * 100}>
                 <div className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-primary">{s.value}</div>
                 <div className="text-xs sm:text-sm text-muted-foreground font-body mt-1">{s.label}</div>
               </div>
@@ -123,21 +127,22 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features - "O que você vai encontrar" */}
+      {/* Features */}
       <section className="py-14 sm:py-20 bg-card">
         <div className="container mx-auto px-4">
-          <h2 className="animate-on-scroll text-2xl sm:text-3xl md:text-[2.75rem] font-display font-semibold text-center text-foreground mb-3 sm:mb-4 leading-tight">
-            O que você vai <span className="animated-underline text-primary">encontrar</span>
+          <h2 className="text-2xl sm:text-3xl md:text-[2.75rem] font-display font-semibold text-center text-foreground mb-3 sm:mb-4 leading-tight" data-aos="fade-up">
+            O que você vai <span className="text-primary">encontrar</span>
           </h2>
-          <p className="animate-on-scroll text-center text-muted-foreground font-feature text-sm sm:text-lg mb-10 sm:mb-14 max-w-2xl mx-auto">
+          <p className="text-center text-muted-foreground font-feature text-sm sm:text-lg mb-10 sm:mb-14 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
             Cada página foi escrita para transformar o ato de <strong>cuidar</strong> em um gesto de <strong>respeito</strong> e <strong>dignidade</strong>.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {features.map((f, i) => (
               <div
                 key={f.title}
-                className="animate-slide-in bg-background rounded-2xl p-6 sm:p-8 text-center space-y-3 sm:space-y-4 border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300 group"
-                style={{ transitionDelay: `${i * 0.1}s` }}
+                data-aos="fade-left"
+                data-aos-delay={i * 120}
+                className="bg-background rounded-2xl p-6 sm:p-8 text-center space-y-3 sm:space-y-4 border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300 group"
               >
                 <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-accent group-hover:bg-primary/15 transition-colors">
                   <f.icon className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />
@@ -153,18 +158,19 @@ const Index = () => {
       {/* Topics Detail Section */}
       <section className="py-14 sm:py-20">
         <div className="container mx-auto px-4">
-          <h2 className="animate-on-scroll text-2xl sm:text-3xl md:text-[2.75rem] font-display font-semibold text-center text-foreground mb-3 sm:mb-4 leading-tight">
-            Tópicos <span className="animated-underline text-primary">abordados</span>
+          <h2 className="text-2xl sm:text-3xl md:text-[2.75rem] font-display font-semibold text-center text-foreground mb-3 sm:mb-4 leading-tight" data-aos="fade-up">
+            Tópicos <span className="text-primary">abordados</span>
           </h2>
-          <p className="animate-on-scroll text-center text-muted-foreground font-feature text-sm sm:text-lg mb-10 sm:mb-14 max-w-2xl mx-auto">
+          <p className="text-center text-muted-foreground font-feature text-sm sm:text-lg mb-10 sm:mb-14 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
             Conteúdo <strong>completo</strong> e <strong>organizado</strong> para facilitar o seu aprendizado.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 max-w-3xl mx-auto">
             {topics.map((t, i) => (
               <div
                 key={t.title}
-                className="animate-slide-in flex items-start gap-4 bg-card rounded-xl p-5 sm:p-6 border border-border hover:border-primary/20 hover:shadow-lg transition-all duration-300"
-                style={{ transitionDelay: `${i * 0.12}s` }}
+                data-aos="fade-left"
+                data-aos-delay={i * 120}
+                className="flex items-start gap-4 bg-card rounded-xl p-5 sm:p-6 border border-border hover:border-primary/20 hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex-shrink-0 w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center">
                   <t.icon className="w-5 h-5 text-primary" />
@@ -182,9 +188,9 @@ const Index = () => {
       {/* About the book */}
       <section className="py-14 sm:py-20 bg-card">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center space-y-5 sm:space-y-6 animate-on-scroll">
+          <div className="max-w-3xl mx-auto text-center space-y-5 sm:space-y-6" data-aos="fade-up">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-semibold text-foreground">
-              Sobre o <span className="animated-underline text-primary">E-book</span>
+              Sobre o <span className="text-primary">E-book</span>
             </h2>
             <p className="text-muted-foreground font-body leading-relaxed text-sm sm:text-lg">
               <span className="font-display italic text-foreground">Cuidando com Amor</span> é o recurso ideal para <strong>familiares</strong>, 
@@ -208,7 +214,7 @@ const Index = () => {
       {/* Quote Section */}
       <section className="py-12 sm:py-16 bg-primary/5">
         <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center space-y-4 animate-on-scroll">
+          <div className="max-w-2xl mx-auto text-center space-y-4" data-aos="fade-up">
             <Quote className="w-8 h-8 sm:w-10 sm:h-10 text-primary/40 mx-auto" />
             <p className="text-lg sm:text-xl md:text-2xl font-display italic text-foreground leading-relaxed px-2">
               "Criei este e-book para levar até você <strong>orientações práticas, acessíveis e reais</strong>, com o mesmo carinho com que ensino meus alunos."
@@ -221,7 +227,7 @@ const Index = () => {
       {/* Author */}
       <section className="py-14 sm:py-20 bg-card">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center gap-8 sm:gap-12 max-w-4xl mx-auto animate-on-scroll">
+          <div className="flex flex-col md:flex-row items-center gap-8 sm:gap-12 max-w-4xl mx-auto" data-aos="fade-up">
             <div className="flex-shrink-0">
               <div className="relative">
                 <div className="absolute -inset-3 bg-gradient-to-br from-primary/25 to-accent/40 rounded-full blur-xl" />
@@ -237,7 +243,7 @@ const Index = () => {
             </div>
             <div className="text-center md:text-left space-y-3 sm:space-y-4">
               <h2 className="text-2xl sm:text-3xl font-display font-semibold text-foreground">
-                Quem é <span className="animated-underline text-primary">Adriana Oliveira</span>?
+                Quem é <span className="text-primary">Adriana Oliveira</span>?
               </h2>
               <p className="text-sm sm:text-base text-muted-foreground font-body leading-relaxed">
                 <strong>Enfermeira por vocação</strong>, apaixonada por ensinar e cuidar com amor em todas as fases da vida. 
@@ -256,7 +262,7 @@ const Index = () => {
       {/* Final CTA */}
       <section className="py-14 sm:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/10" />
-        <div className="relative container mx-auto px-4 text-center space-y-4 sm:space-y-6 animate-on-scroll">
+        <div className="relative container mx-auto px-4 text-center space-y-4 sm:space-y-6" data-aos="fade-up">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-semibold text-foreground">
             Cuidar com amor é um dos maiores atos de <span className="text-primary">generosidade</span>
           </h2>
